@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,ini">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--界面模板 -->
+        <p>姓: {{firstName}} </p>
+        <p>名: {{lastName}} </p>
+        <p>全名: {{fullName}}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        //var:vm实例
+        var vm = new Vue({
+            //配置
+            el: "#app", //css选择器,挂载
+            data: {
+                firstName: "^_^",
+                lastName: "成",
+            },
+            computed:{
+                fullName(){
+                    return this.firstName + this.lastName;
+                },
+            },
+        });
+    </script>
+</body>
+</html>

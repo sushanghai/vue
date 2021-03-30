@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,inial-scale=1.0">
+    <title>v-show</title>
+</head>
+<body>
+    <div id="app">
+       <h1>{{text}}</h1>
+        <!--<input type="text" :value="text" @input="text=$event.target.value">-->
+        <input type="text" v-model="text">
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+         var vm = new Vue({
+             //配置
+             el: "#app", //css选择器
+             data: {
+                 text: "abc"
+             },
+         });
+     </script>
+ </body>
+ </html>

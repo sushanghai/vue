@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,inial-scale=1.0">
+    <title>v-on</title>
+</head>
+<body>
+    <div id="app">
+        <!--v-on:注册事件,可以替换成@,prevent表示阻止-->
+        <!-- <button @click="test()">点击我1</button><br>-->
+        <a href="http://www.baidu.com" @click.prevent="test($event)">点击我2</a>
+        <br>
+        <br>
+        <div @click="test3">
+         <button @click.stop="test2">点击我3</button>
+        </div>
+     </div>
+     <script src="./vue.js"></script>
+     <script>
+         var vm = new Vue({
+             //配置
+             el: "#app",
+             methods:{
+                 test(e) {
+                     console.log("hello",e);
+                 },
+                 test2(e) {
+                     console.log("button-click",e);
+                 },
+                 test3() {
+                     console.log("div-click");
+                 },
+             },
+         });
+     </script>
+ </body>
+ </html>
