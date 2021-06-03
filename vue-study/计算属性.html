@@ -11,6 +11,9 @@
         <p>姓: {{firstName}} </p>
         <p>名: {{lastName}} </p>
         <p>全名: {{fullName}}</p>
+        <input type="text"  v-model="fullName" />
+        <h1>{{count}}</h1>
+        <button @click="count++">+1</button>
     </div>
     <script src="./vue.js"></script>
     <script>
@@ -21,11 +24,26 @@
             data: {
                 firstName: "^_^",
                 lastName: "成",
+                count:0
             },
             computed:{
-                fullName(){
-                    return this.firstName + this.lastName;
+                fullName:{
+                    get() {
+                        console.log("computed: fullName")
+                        return this.firstName + this.lastName;
+                    },
+                    set(val){
+                        console.log(val)
+                        this.firstName = val[0];
+                        this.lastName = val.substring(1);
+                    },
                 },
+            methods: {
+                    getFullName() {
+                        console.log("methods: getFullName")
+                        return this.firstName + this.lastName;
+                    },
+            },
             },
         });
     </script>
